@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Student Management API",
+    "description": "CRUD for Students, Marks, and Pagination",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Student",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"age\": 25\n}"
+        },
+        "url": { "raw": "http://localhost:8000/api/student", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["api", "student"] }
+      }
+    },
+    {
+      "name": "Get All Students",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:8000/api/students", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["api", "students"] }
+      }
+    },
+    {
+      "name": "Get Student By ID With Marks",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/student/1/with-marks",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "student", "1", "with-marks"]
+        }
+      }
+    },
+    {
+      "name": "Update Student",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@example.com\",\n  \"age\": 30\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/student/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "student", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Student",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8000/api/student/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "student", "1"]
+        }
+      }
+    },
+    {
+      "name": "Add Mark",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"student_id\": 1,\n  \"subject\": \"Math\",\n  \"score\": 90\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/mark",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "mark"]
+        }
+      }
+    },
+    {
+      "name": "Get Marks by Student",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/marks/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "marks", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Mark",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"Science\",\n  \"score\": 85\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/mark/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "mark", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Mark",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8000/api/mark/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "mark", "1"]
+        }
+      }
+    },
+    {
+      "name": "Paginated Students",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8000/api/students/paginated?page=1&limit=5",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "students", "paginated"],
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" }
+          ]
+        }
+      }
+    }
+  ]
+}
